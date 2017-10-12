@@ -10,5 +10,8 @@
 #   See the License for the specific language governing permissions and
 #   limitations under the License.
 
-from ._pyquil_connector import exponentiate, TimeEvolution
-from ._pyquil_circuit_generator import pyquilpauli_to_qubitop, qubitop_to_pyquilpauli
+from forestopenfermion.pyquil_connector import exponentiate, TimeEvolution
+from forestopenfermion.pyquil_circuit_generator import (pyquilpauli_to_qubitop,
+                                                        qubitop_to_pyquilpauli)
+
+__version__ = "0.0.1"

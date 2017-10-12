@@ -2,7 +2,7 @@
 import numpy as np
 import pytest
 from openfermion.ops import QubitOperator, FermionOperator
-from openfermionforest._pyquil_connector import exponentiate, TimeEvolution
+from forestopenfermion.pyquil_connector import exponentiate, TimeEvolution
 from pyquil.gates import H, RX, CNOT, RZ
 from pyquil.quil import Program
 
@@ -22,7 +22,7 @@ def test_exponentiate():
     assert true_program.out() == test_program.out()
 
 
-def test_exponetiate_type_fail():
+def test_exponentiate_type_fail():
     fermion_term = FermionOperator('1^ 0')
     with pytest.raises(TypeError):
         exponentiate(fermion_term)
