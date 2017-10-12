@@ -25,18 +25,15 @@ from pyquil.paulis import exponentiate as pyquil_exponentiate
 
 def exponentiate(qubit_operator):
     """
-    Generates a pyquil program corresponding to the QubitOperator generator
+    Generates a pyquil program corresponding to the QubitOperator generator.
 
-    The OpenFermion qubit operator is translated to a pyQuil PauliSum which,
-    in turn, is passed to the `exponentiate' method. The `exponentiate' method
-    generates a circuit that can be simulated with the Forest-qvm or associated
-    QVMs.
+    The OpenFermion qubit operator is translated to a pyQuil PauliSum which, in turn, is passed to
+    the `exponentiate' method. The `exponentiate' method generates a circuit that can be simulated
+    with the Forest-qvm or associated QVMs.
 
-    Args:
-        qubit_operator (QubitOperator):
-            Generator of rotations
-    Returns:
-        Program: a pyQuil program representing the unitary evolution
+    :param QubitOperator qubit_operator: Generator of rotations
+    :return: a pyQuil program representing the unitary evolution
+    :rtype: Program
     """
     if not isinstance(qubit_operator, QubitOperator):
         raise TypeError("qubit_operator must be an OpenFermion "
@@ -54,16 +51,13 @@ def TimeEvolution(time, hamiltonian):
     """
     Time evolve a hamiltonian
 
-    Converts the Hamiltonian to an instance of the pyQuil Pauliterms and returns
-    the time evolution operator. This method mirrors the ProjectQ TimeEvolution
-    interface.
+    Converts the Hamiltonian to an instance of the pyQuil Pauliterms and returns the time evolution
+    operator. This method mirrors the ProjectQ TimeEvolution interface.
 
-    Args:
-        time (float, int): time to evolve
-        hamiltonian (QubitOperator): a hamiltonian as a OpenFermion
-            QubitOperator
-    Returns:
-        program (Program)
+    :param [float, int] time: time to evolve
+    :param QubitOperator hamiltonian: a Hamiltonian as a OpenFermion QubitOperator
+    :return: a pyquil Program representing the Hamiltonian
+    :rtype: Program
     """
     if not isinstance(time, (int, float)):
         raise TypeError("float must be a float or an int")

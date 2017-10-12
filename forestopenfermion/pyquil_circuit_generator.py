@@ -24,11 +24,9 @@ def qubitop_to_pyquilpauli(qubit_operator):
     """
     Convert a OpenFermion QubitOperator to a PauliSum
 
-    Args:
-        qubit_operator (QubitOperator): OpenFermion QubitOperator to convert
-            to a pyquil PauliSum
-    Returns:
-        transformed_term (PauliSum)
+    :param QubitOperator qubit_operator: OpenFermion QubitOperator to convert to a pyquil.PauliSum
+    :return: PauliSum representing the qubit operator
+    :rtype: PauliSum
     """
     if not isinstance(qubit_operator, QubitOperator):
         raise TypeError("qubit_operator must be a OpenFermion "
@@ -49,11 +47,10 @@ def pyquilpauli_to_qubitop(pyquil_pauli):
     """
     Convert a pyQuil PauliSum to a OpenFermion QubitOperator
 
-    Args:
-        pyquil_pauli (PauliTerm, PauliSum): pyQuil PauliTerm or PauliSum to
-            convert to a OpenFermion QubitOperator
-    Returns:
-        transformed_term (QubitOperator)
+    :param [PauliTerm, PauliSum] pyquil_pauli: pyQuil PauliTerm or PauliSum to convert to an
+    OpenFermion QubitOperator
+    :returns: a QubitOperator representing the PauliSum or PauliTerm
+    :rtype: QubitOperator
     """
     if not isinstance(pyquil_pauli, (PauliSum, PauliTerm)):
         raise TypeError("pyquil_pauli must be a pyquil PauliSum or "
