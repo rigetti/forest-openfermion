@@ -10,25 +10,18 @@
 #   See the License for the specific language governing permissions and
 #   limitations under the License.
 from setuptools import setup, find_packages
-
-# This reads the __version__ variable from openfermionforest/_version.py
-exec(open('forestopenfermion/_version.py').read())
+from forestopenfermion import __version__
 
 # Readme file as long_description:
 long_description = open('README.rst').read()
-
-# Read in requirements.txt
-requirements = open('requirements.txt').readlines()
-requirements = [r.strip() for r in requirements]
 
 setup(
     name='forestopenfermion',
     version=__version__,
     author='Rigetti Computing',
     author_email='softapps@rigetti.com',
-    description=('A plugin allowing OpenFermion to interaface with Forest.'),
+    description='A plugin allowing OpenFermion to interaface with Forest.',
     long_description=long_description,
-    install_requires=requirements,
     license='Apache 2',
-    packages=find_packages()
+    packages=find_packages(exclude=["tests"])
 )

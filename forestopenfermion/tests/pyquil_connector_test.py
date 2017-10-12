@@ -7,8 +7,8 @@ from openfermion.ops import (FermionOperator, hermitian_conjugated,
                              QubitOperator, InteractionOperator,
                              InteractionRDM)
 from openfermion.transforms import jordan_wigner
-from openfermionforest._pyquil_circuit_generator import (pyquilpauli_to_qubitop,
-                                                         qubitop_to_pyquilpauli)
+from forestopenfermion.pyquil_circuit_generator import (pyquilpauli_to_qubitop,
+                                                        qubitop_to_pyquilpauli)
 from pyquil.paulis import PauliTerm, PauliSum
 
 
