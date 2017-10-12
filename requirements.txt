@@ -1,0 +1,12 @@
+scipy>=0.18.0
+numpy>=1.11.0
+openfermion==0.1a0
+pyquil>=1.1.0
+future
+
+# For testing
+pytest>= 3.0.0
+tox
+pytest-cov
+codeclimate-test-reporter
+
