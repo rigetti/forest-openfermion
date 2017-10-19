@@ -14,61 +14,56 @@
 #   limitations under the License.
 ############################################################################
 """
-An interface from OpenFermion QubitObjects to some of the circuit generating functionality in pyquil
+Translates OpenFermion Objects to pyQuil objects
 """
-from forestopenfermion.pyquil_circuit_generator import qubitop_to_pyquilpauli
+from pyquil.paulis import PauliSum, PauliTerm
 from openfermion.ops import QubitOperator
 
-from pyquil.quil import Program
-from pyquil.paulis import exponentiate as pyquil_exponentiate
 
-
-def exponentiate(qubit_operator):
+def qubitop_to_pyquilpauli(qubit_operator):
     """
-    Generates a pyquil program corresponding to the QubitOperator generator.
+    Convert a OpenFermion QubitOperator to a PauliSum
 
-    The OpenFermion qubit operator is translated to a pyQuil PauliSum which, in turn, is passed to
-    the `exponentiate' method. The `exponentiate' method generates a circuit that can be simulated
-    with the Forest-qvm or associated QVMs.
-
-    :param QubitOperator qubit_operator: Generator of rotations
-    :return: a pyQuil program representing the unitary evolution
-    :rtype: Program
+    :param QubitOperator qubit_operator: OpenFermion QubitOperator to convert to a pyquil.PauliSum
+    :return: PauliSum representing the qubit operator
+    :rtype: PauliSum
     """
     if not isinstance(qubit_operator, QubitOperator):
-        raise TypeError("qubit_operator must be an OpenFermion "
-                        "QubitOperator type")
-
-    pauli_sum_representation = qubitop_to_pyquilpauli(qubit_operator)
-    prog = Program()
-    for term in pauli_sum_representation.terms:
-        prog += pyquil_exponentiate(term)
-
-    return prog
-
-
-def TimeEvolution(time, hamiltonian):
-    """
-    Time evolve a hamiltonian
-
-    Converts the Hamiltonian to an instance of the pyQuil Pauliterms and returns the time evolution
-    operator. This method mirrors the ProjectQ TimeEvolution interface.
-
-    :param [float, int] time: time to evolve
-    :param QubitOperator hamiltonian: a Hamiltonian as a OpenFermion QubitOperator
-    :return: a pyquil Program representing the Hamiltonian
-    :rtype: Program
-    """
-    if not isinstance(time, (int, float)):
-        raise TypeError("float must be a float or an int")
-    if not isinstance(hamiltonian, QubitOperator):
-        raise TypeError("hamiltonian must be an OpenFermion "
+        raise TypeError("qubit_operator must be a OpenFermion "
                         "QubitOperator object")
 
-    pyquil_pauli_term = qubitop_to_pyquilpauli(hamiltonian)
-    pyquil_pauli_term *= time
-    prog = Program()
-    for term in pyquil_pauli_term.terms:
-        prog += pyquil_exponentiate(term)
+    transformed_term = PauliTerm("I", 0, 0.0)
+    for qubit_terms, coefficient in qubit_operator.terms.items():
+        base_term = PauliTerm('I', 0)
+        for tensor_term in qubit_terms:
+            base_term *= PauliTerm(tensor_term[1], tensor_term[0])
 
-    return prog
+        transformed_term += base_term * coefficient
+
+    return transformed_term
+
+
+def pyquilpauli_to_qubitop(pyquil_pauli):
+    """
+    Convert a pyQuil PauliSum to a OpenFermion QubitOperator
+
+    :param [PauliTerm, PauliSum] pyquil_pauli: pyQuil PauliTerm or PauliSum to convert to an
+    OpenFermion QubitOperator
+    :returns: a QubitOperator representing the PauliSum or PauliTerm
+    :rtype: QubitOperator
+    """
+    if not isinstance(pyquil_pauli, (PauliSum, PauliTerm)):
+        raise TypeError("pyquil_pauli must be a pyquil PauliSum or "
+                        "PauliTerm object")
+
+    if isinstance(pyquil_pauli, PauliTerm):
+        pyquil_pauli = PauliSum([pyquil_pauli])
+
+    transformed_term = QubitOperator()
+    # iterate through the PauliTerms of PauliSum
+    for pauli_term in pyquil_pauli.terms:
+        transformed_term += QubitOperator(
+            term=tuple(zip(pauli_term._ops.keys(), pauli_term._ops.values())),
+            coefficient=pauli_term.coefficient)
+
+    return transformed_term

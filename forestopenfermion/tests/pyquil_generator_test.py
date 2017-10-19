@@ -2,7 +2,7 @@
 import numpy as np
 import pytest
 from openfermion.ops import QubitOperator, FermionOperator
-from forestopenfermion.pyquil_connector import exponentiate, TimeEvolution
+from forestopenfermion.pyquil_circuit_generator import exponentiate, TimeEvolution
 from pyquil.gates import H, RX, CNOT, RZ
 from pyquil.quil import Program
 
