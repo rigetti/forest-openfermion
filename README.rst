@@ -1,6 +1,7 @@
-Fores-OpenFermion
+Forest-OpenFermion
 ==================
 
+[![Build Status](https://semaphoreci.com/api/v1/projects/804e75d3-73d1-4529-b65f-b80d390f2782/1579863/badge.svg)] (https://semaphoreci.com/rigetti/forestopenfermion)
 
 `OpenFermion <http://openfermion.org>`_ is an open source package for compiling and analyzing quantum algorithms that simulate fermionic systems.
 This plugin library allows the circuit construction and simulation enviornment `Forest <http://www.rigetti.com/forest>`_ to interface with OpenFermion.
