@@ -27,5 +27,12 @@ setup(
     description='A plugin allowing OpenFermion to interface with Forest.',
     long_description=long_description,
     license='Apache 2',
+    install_requires=[
+        'scipy >= 0.18.0',
+        'numpy >= 1.11.0',
+        'openfermion == 0.1a0',
+        'pyquil >= 1.1.0',
+        'future'
+    ],
     packages=find_packages(exclude=["tests"])
 )

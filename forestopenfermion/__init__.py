@@ -14,4 +14,4 @@ from forestopenfermion.pyquil_connector import exponentiate, TimeEvolution
 from forestopenfermion.pyquil_circuit_generator import (pyquilpauli_to_qubitop,
                                                         qubitop_to_pyquilpauli)
 
-__version__ = "0.0.1"
+__version__ = "0.0.2"
