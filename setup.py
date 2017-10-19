@@ -24,7 +24,7 @@ setup(
     version=__version__,
     author='Rigetti Computing',
     author_email='softapps@rigetti.com',
-    description='A plugin allowing OpenFermion to interaface with Forest.',
+    description='A plugin allowing OpenFermion to interface with Forest.',
     long_description=long_description,
     license='Apache 2',
     packages=find_packages(exclude=["tests"])

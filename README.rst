@@ -8,12 +8,13 @@ This plugin library allows the circuit construction and simulation enviornment `
 Getting started
 ---------------
 
-To start using Forest-OpenFermion, first install `OpenFermion <http://openfermion.org>`_ and the libraries associated
-with Forest `pyQuil <https://github.com/rigetticomputing/pyQuil>`_, and `grove <https://github.com/rigetticomputing/grove>`_.
-Then, clone this git repo, change directory to the top level folder and run:
+Forest-OpenFermion can be installed from source or as a library using pip.
+
+To install the source, clone this git repo, change directory to the top level folder and run:
 
 .. code-block:: bash
 
+  pip install -r requirements.txt
   python -m pip install -e .
 
 Alternatively, one can install the last major release with the command
@@ -32,5 +33,3 @@ We use tox and pytest for testing. Tests can be executed from the top-level dire
   tox
 
 The setup is currently testing Python 2.7 and Python 3.6.
-
-
