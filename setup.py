@@ -30,7 +30,7 @@ setup(
     install_requires=[
         'scipy >= 0.18.0',
         'numpy >= 1.11.0',
-        'openfermion == 0.1a0',
+        'openfermion >= 0.1',
         'pyquil >= 1.1.0',
         'future'
     ],
