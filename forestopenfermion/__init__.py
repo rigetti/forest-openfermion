@@ -31,4 +31,4 @@ from forestopenfermion.rdm_utilities import (get_sz_spin_adapted,
                                              pauli_term_relabel,
                                              pauli_dict_relabel)
 
-__version__ = "0.0.3"
+__version__ = "0.0.4"
