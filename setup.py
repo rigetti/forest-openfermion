@@ -32,6 +32,7 @@ setup(
         'numpy >= 1.11.0',
         'openfermion >= 0.1',
         'pyquil >= 1.1.0',
+        'quantum-grove >= 1.6.0',
         'future'
     ],
     packages=find_packages(exclude=["tests"])
