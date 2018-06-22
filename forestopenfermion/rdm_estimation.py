@@ -22,15 +22,15 @@ def _measure_list_of_pauli_terms(pauli_terms, variance_bound, program,
     Measure the expected value of a list of Pauli terms and return as a dict
 
     :param pauli_terms: Pauli Terms to measure
-    :param variance_bound: variance bound for measurement.  Right now this is the
-                           bound on the variance if you summed up all the
+    :param variance_bound: variance bound for measurement.  Right now this is
+                           the bound on the variance if you summed up all the
                            individual terms. 1.0E-6 is a good place to start.
     :param program: pyquil Program preparing state
     :param quantum_resource: quantum abstract machine connection object
     :return: results dictionary where the key is the Pauli term ID and the value
              is the expected value
     """
-     # group them into commuting sets and then measure
+    # group them into commuting sets and then measure
     grouped_terms = commuting_sets_by_zbasis(sum(pauli_terms))
 
     # measure the terms
@@ -50,7 +50,8 @@ def _measure_list_of_pauli_terms(pauli_terms, variance_bound, program,
                                      variance_bound / len(terms),
                                      quantum_resource)
         for idx, term in enumerate(pauli_sum.terms):
-            result_dictionary[term.id()] = results.pauli_expectations[idx] / term.coefficient
+            result_dictionary[term.id()] = results.pauli_expectations[idx] / \
+                                           term.coefficient
     return result_dictionary
 
 
@@ -74,7 +75,8 @@ def measure_aa_tpdm(spatial_dim, variance_bound, program, quantum_resource,
     pauli_terms_in_aa = pauli_terms_for_tpdm_aa(spatial_dim,
                                                 transform=jordan_wigner)
     if label_map is not None:
-        pauli_terms_in_aa = pauli_term_relabel(sum(pauli_terms_in_aa), label_map)
+        pauli_terms_in_aa = pauli_term_relabel(sum(pauli_terms_in_aa),
+                                               label_map)
         rev_label_map = dict(zip(label_map.values(), label_map.keys()))
 
     result_dictionary = _measure_list_of_pauli_terms(pauli_terms_in_aa,
@@ -108,7 +110,8 @@ def measure_bb_tpdm(spatial_dim, variance_bound, program, quantum_resource,
     pauli_terms_in_bb = pauli_terms_for_tpdm_bb(spatial_dim,
                                                 transform=jordan_wigner)
     if label_map is not None:
-        pauli_terms_in_bb = pauli_term_relabel(sum(pauli_terms_in_bb), label_map)
+        pauli_terms_in_bb = pauli_term_relabel(sum(pauli_terms_in_bb),
+                                               label_map)
         rev_label_map = dict(zip(label_map.values(), label_map.keys()))
 
     result_dictionary = _measure_list_of_pauli_terms(pauli_terms_in_bb,
@@ -142,7 +145,8 @@ def measure_ab_tpdm(spatial_dim, variance_bound, program, quantum_resource,
     pauli_terms_in_ab = pauli_terms_for_tpdm_ab(spatial_dim,
                                                 transform=jordan_wigner)
     if label_map is not None:
-        pauli_terms_in_ab = pauli_term_relabel(sum(pauli_terms_in_ab), label_map)
+        pauli_terms_in_ab = pauli_term_relabel(sum(pauli_terms_in_ab),
+                                               label_map)
         rev_label_map = dict(zip(label_map.values(), label_map.keys()))
 
     result_dictionary = _measure_list_of_pauli_terms(pauli_terms_in_ab,

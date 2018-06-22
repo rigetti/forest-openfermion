@@ -79,10 +79,10 @@ def unspin_adapt(d2aa, d2bb, d2ab):
     :param d2bb: beta-beta block of the 2-RDM.  Antisymmetric basis functions
                  are assumed for this block. block size is r_{s} * (r_{s} - 1)/2
                  where r_{s} is the number of spatial basis functions
-    :param d2ab: alpha-beta block of the 2-RDM. no symmetry adapting is perfomred
-                 on this block.  Map directly back to spin-orbital components.
-                 This block should have linear dimension r_{s}^{2} where r_{S}
-                 is the number of spatial basis functions.
+    :param d2ab: alpha-beta block of the 2-RDM. no symmetry adapting is
+                 perfomred on this block.  Map directly back to spin-orbital
+                 components. This block should have linear dimension r_{s}^{2}
+                 where r_{S} is the number of spatial basis functions.
     :return: four-tensor representing the spin-orbital density matrix in
              OpenFermion ordering.
     """
