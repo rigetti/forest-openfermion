@@ -1,0 +1,8 @@
+image: python:3.6
+
+test:
+  tags:
+    - github
+  script:
+    - pip install -r requirements.txt
+    - pytest
