@@ -14,10 +14,20 @@
 #   limitations under the License.
 ############################################################################
 from setuptools import setup, find_packages
-from forestopenfermion import __version__
 
 # Readme file as long_description:
 long_description = open('README.rst').read()
+
+with open('VERSION.txt', 'r') as f:
+    __version__ = f.read().strip()
+
+# save the source code in version.py
+with open('forestopenfermion/version.py', 'r') as f:
+    version_file_source = f.read()
+
+# overwrite version.py in the source distribution
+with open('forestopenfermion/version.py', 'w') as f:
+    f.write(f'__version__ = \'{__version__}\'\n')
 
 setup(
     name='forestopenfermion',
