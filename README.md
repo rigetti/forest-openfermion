@@ -11,16 +11,13 @@ interface with OpenFermion.
 Getting Started
 ---------------
 
-`forestopenfermion` can be installed from source or as a library using `pip`.
-
-To install the source, clone this git repo, change directory to the top level folder and run:
+To install from source, run the following from inside the top-level directory:
 
 ```bash
-pip install -r requirements.txt
 pip install -e .
 ```
 
-Alternatively, one can install the last major release with the command
+Alternatively, one can install the last major release from PyPI via:
 
 ```bash
 pip install forestopenfermion
@@ -29,11 +26,12 @@ pip install forestopenfermion
 Development and Testing
 -----------------------
 
-We use `tox` and `pytest` for testing. Tests can be executed from the top-level
+We use `pytest` for testing. Tests can be executed from the top-level
 directory by simply running:
 
 ```bash
-tox
+pytest
 ```
 
-The setup is currently testing Python 2.7 and Python 3.6.
+Note that you will need to have installed the requirements via
+`pip install -r requirements.txt` to get `pytest`.
