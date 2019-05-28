@@ -1,7 +1,7 @@
 The Rigetti Forest Plugin for OpenFermion
 =========================================
 
-[![Build Status](https://semaphoreci.com/api/v1/rigetti/forestopenfermion/branches/master/shields_badge.svg)](https://semaphoreci.com/rigetti/forestopenfermion)
+[![Build Status](https://semaphoreci.com/api/v1/rigetti/forest-openfermion/branches/master/shields_badge.svg)](https://semaphoreci.com/rigetti/forest-openfermion)
 
 [OpenFermion](http://openfermion.org>) is an open source package for compiling and analyzing
 quantum algorithms that simulate fermionic systems. This plugin library allows the circuit
@@ -20,7 +20,7 @@ pip install -e .
 Alternatively, one can install the last major release from PyPI via:
 
 ```bash
-pip install forestopenfermion
+pip install forest-openfermion
 ```
 
 Development and Testing

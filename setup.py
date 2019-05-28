@@ -19,7 +19,7 @@ import sys
 from setuptools import setup
 
 if sys.version_info < (3, 6):
-    raise ImportError('The forestopenfermion library requires Python 3.6 or above.')
+    raise ImportError('The forest-openfermion library requires Python 3.6 or above.')
 
 with open('README.md', 'r') as f:
     long_description = f.read()
@@ -36,7 +36,7 @@ with open('forestopenfermion/version.py', 'w') as f:
     f.write(f'__version__ = \'{__version__}\'\n')
 
 setup(
-    name='forestopenfermion',
+    name='forest-openfermion',
     version=__version__,
     author='Rigetti Computing',
     author_email='software@rigetti.com',
