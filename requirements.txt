@@ -1,15 +1,9 @@
-scipy>=0.18.0
-numpy>=1.11.0
-openfermion>=0.1
-pyquil>=1.4.0
-git+git://github.com/rigetticomputing/grove.git#egg=grove
-future
-pip
+scipy < 1.0.0
+numpy < 2.0.0
+openfermion < 1.0.0
+pyquil < 3.0.0
+quantum-grove < 2.0.0
 
-# For testing
-pytest>= 3.0.0
-typing
-tox
-pytest-cov
-codeclimate-test-reporter
+# for testing
+pytest
 
