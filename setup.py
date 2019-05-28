@@ -13,10 +13,11 @@
 #   See the License for the specific language governing permissions and
 #   limitations under the License.
 ############################################################################
-from setuptools import setup, find_packages
 
-# Readme file as long_description:
-long_description = open('README.rst').read()
+from setuptools import setup
+
+with open('README.md', 'r') as f:
+    long_description = f.read()
 
 with open('VERSION.txt', 'r') as f:
     __version__ = f.read().strip()
@@ -33,18 +34,17 @@ setup(
     name='forestopenfermion',
     version=__version__,
     author='Rigetti Computing',
-    author_email='softapps@rigetti.com',
+    author_email='software@rigetti.com',
     description='A plugin allowing OpenFermion to interface with Forest.',
     long_description=long_description,
     long_description_content_type='text/markdown',
     license='Apache 2',
     install_requires=[
-        'scipy >= 0.18.0',
-        'numpy >= 1.11.0',
-        'openfermion >= 0.1',
-        'pyquil >= 1.1.0',
-        'quantum-grove >= 1.6.0',
-        'future'
+        'scipy < 1.0.0',
+        'numpy < 2.0.0',
+        'openfermion < 1.0.0',
+        'pyquil < 3.0.0',
+        'quantum-grove < 2.0.0'
     ],
-    packages=find_packages(exclude=["tests"])
+    packages=['forestopenfermion']
 )
