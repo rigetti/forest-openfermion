@@ -14,7 +14,12 @@
 #   limitations under the License.
 ############################################################################
 
+import sys
+
 from setuptools import setup
+
+if sys.version_info < (3, 6):
+    raise ImportError('The forestopenfermion library requires Python 3.6 or above.')
 
 with open('README.md', 'r') as f:
     long_description = f.read()
@@ -46,5 +51,6 @@ setup(
         'pyquil < 3.0.0',
         'quantum-grove < 2.0.0'
     ],
-    packages=['forestopenfermion']
+    packages=['forestopenfermion'],
+    python_requires='>=3.6'
 )
