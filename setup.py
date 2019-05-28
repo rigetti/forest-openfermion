@@ -36,6 +36,7 @@ setup(
     author_email='softapps@rigetti.com',
     description='A plugin allowing OpenFermion to interface with Forest.',
     long_description=long_description,
+    long_description_content_type='text/markdown',
     license='Apache 2',
     install_requires=[
         'scipy >= 0.18.0',
