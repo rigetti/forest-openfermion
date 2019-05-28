@@ -11,11 +11,11 @@ def test_exponentiate():
     one_pauli_term = QubitOperator('X0 Y2 Z3')
     test_program = exponentiate(one_pauli_term)
 
-    true_program = Program().inst([H(0), RX(np.pi/2)(2),
+    true_program = Program().inst([H(0), RX(np.pi/2, 2),
                                    CNOT(0, 2), CNOT(2, 3),
-                                   RZ(2.0)(3), CNOT(2, 3),
+                                   RZ(2.0, 3), CNOT(2, 3),
                                    CNOT(0, 2), H(0),
-                                   RX(-np.pi/2)(2)])
+                                   RX(-np.pi/2, 2)])
 
     # pyquil has no program compare object
     # string base comparison might fail
@@ -31,11 +31,11 @@ def test_exponentiate_type_fail():
 def test_time_evolve():
     one_pauli_term = QubitOperator('X0 Y2 Z3')
     prog = TimeEvolution(1, one_pauli_term)
-    true_program = Program().inst([H(0), RX(np.pi/2)(2),
+    true_program = Program().inst([H(0), RX(np.pi/2, 2),
                                    CNOT(0, 2), CNOT(2, 3),
-                                   RZ(2.0)(3), CNOT(2, 3),
+                                   RZ(2.0, 3), CNOT(2, 3),
                                    CNOT(0, 2), H(0),
-                                   RX(-np.pi/2)(2)])
+                                   RX(-np.pi/2, 2)])
 
     assert isinstance(true_program, Program)
     assert prog.out() == true_program.out()
