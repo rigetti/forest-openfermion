@@ -54,3 +54,7 @@ setup(
     packages=['forestopenfermion'],
     python_requires='>=3.6'
 )
+
+# restore version.py to its previous state
+with open('forestopenfermion/version.py', 'w') as f:
+    f.write(version_file_source)
