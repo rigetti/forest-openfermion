@@ -6,4 +6,3 @@ quantum-grove == 1.7.0
 
 # for testing
 pytest
-
