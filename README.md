@@ -6,6 +6,7 @@ decided to archive it. It should work in its current state, but if you find issu
 to suggest that we re-open development on this project (or, even better, if you would like to
 develop it!) please send us an email at [software@rigetti.com](mailto:software@rigetti.com).
 
+[![pipeline status](https://gitlab.com/rigetti/forest/forest-openfermion/badges/master/pipeline.svg)](https://gitlab.com/rigetti/forest/forest-openfermion/commits/master)
 [![Build Status](https://semaphoreci.com/api/v1/rigetti/forest-openfermion/branches/master/shields_badge.svg)](https://semaphoreci.com/rigetti/forest-openfermion)
 
 [OpenFermion](http://openfermion.org) is an open-source package for compiling and analyzing
