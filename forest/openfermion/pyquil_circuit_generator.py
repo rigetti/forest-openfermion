@@ -16,11 +16,11 @@
 """
 An interface from OpenFermion QubitObjects to some of the circuit generating functionality in pyquil
 """
-from forestopenfermion.pyquil_connector import qubitop_to_pyquilpauli
 from openfermion.ops import QubitOperator
-
 from pyquil.quil import Program
 from pyquil.paulis import exponentiate as pyquil_exponentiate
+
+from forest.openfermion.pyquil_connector import qubitop_to_pyquilpauli
 
 
 def exponentiate(qubit_operator):

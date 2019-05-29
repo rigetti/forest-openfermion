@@ -2,8 +2,14 @@
 Test RDM acquisition for accuracy
 """
 import os
+
 import numpy as np
-from forestopenfermion.rdm_estimation import (pauli_terms_for_tpdm,
+from openfermion.config import DATA_DIRECTORY
+from openfermion.hamiltonians import MolecularData
+from pyquil.paulis import term_with_coeff
+
+from forest.openfermion.pyquil_connector import pyquilpauli_to_qubitop
+from forest.openfermion.rdm_estimation import (pauli_terms_for_tpdm,
                                               pauli_to_tpdm,
                                               pauli_terms_for_tpdm_aa,
                                               pauli_terms_for_tpdm_bb,
@@ -11,13 +17,7 @@ from forestopenfermion.rdm_estimation import (pauli_terms_for_tpdm,
                                               pauli_to_tpdm_aa,
                                               pauli_to_tpdm_bb,
                                               pauli_to_tpdm_ab)
-
-from forestopenfermion.rdm_utilities import get_sz_spin_adapted
-
-from forestopenfermion.pyquil_connector import pyquilpauli_to_qubitop
-from openfermion.config import DATA_DIRECTORY
-from openfermion.hamiltonians import MolecularData
-from pyquil.paulis import term_with_coeff
+from forest.openfermion.rdm_utilities import get_sz_spin_adapted
 
 
 def test_h2_tpdm_build():

@@ -1,8 +1,9 @@
 """
 Utilities for RDMs
 """
-import numpy as np
 from itertools import product
+
+import numpy as np
 from pyquil.paulis import PauliTerm, PauliSum
 
 
