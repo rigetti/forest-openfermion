@@ -1,8 +1,8 @@
-scipy < 1.0.0
-numpy < 2.0.0
-openfermion < 1.0.0
-pyquil < 3.0.0
-quantum-grove < 2.0.0
+scipy == 0.19.1
+numpy == 1.16.4
+openfermion == 0.9.0
+pyquil == 2.8.0
+quantum-grove == 1.7.0
 
 # for testing
 pytest
