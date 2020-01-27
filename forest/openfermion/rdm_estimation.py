@@ -1,19 +1,18 @@
 """
 A module for generating pauli terms corresponding to the 2-RDMs
 """
-import numpy as np
 from itertools import product
-from grove.measurements.estimation import (remove_imaginary_terms,
-                                           estimate_pauli_sum,
+
+import numpy as np
+from grove.measurements.estimation import (remove_imaginary_terms, estimate_pauli_sum,
                                            remove_identity)
 from grove.measurements.term_grouping import commuting_sets_by_zbasis
-from pyquil.paulis import PauliTerm, PauliSum
-
 from openfermion.transforms import jordan_wigner
 from openfermion.ops import FermionOperator
-from forestopenfermion.rdm_utilities import (pauli_dict_relabel,
-                                             pauli_term_relabel)
-from forestopenfermion.pyquil_connector import qubitop_to_pyquilpauli
+from pyquil.paulis import PauliTerm, PauliSum
+
+from forest.openfermion.rdm_utilities import pauli_dict_relabel, pauli_term_relabel
+from forest.openfermion.pyquil_connector import qubitop_to_pyquilpauli
 
 
 def _measure_list_of_pauli_terms(pauli_terms, variance_bound, program,

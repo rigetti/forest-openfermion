@@ -3,13 +3,13 @@ Testing rdm spin adapting and pauli term label mapping
 """
 import os
 import numpy as np
-from forestopenfermion.rdm_utilities import (get_sz_spin_adapted, unspin_adapt,
-                                             pauli_term_from_string,
-                                             pauli_dict_relabel,
-                                             pauli_term_relabel)
 from openfermion.config import DATA_DIRECTORY
 from openfermion.hamiltonians import MolecularData
 from pyquil.paulis import PauliTerm
+
+from forest.openfermion.rdm_utilities import (get_sz_spin_adapted, pauli_dict_relabel,
+                                              pauli_term_from_string, pauli_term_relabel,
+                                              unspin_adapt)
 
 
 def test_spin_adapt_h2():

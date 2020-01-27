@@ -19,7 +19,7 @@ import sys
 from setuptools import setup
 
 if sys.version_info < (3, 6):
-    raise ImportError('The forestopenfermion library requires Python 3.6 or above.')
+    raise ImportError('The forest-openfermion library requires Python 3.6 or above.')
 
 with open('README.md', 'r') as f:
     long_description = f.read()
@@ -28,15 +28,15 @@ with open('VERSION.txt', 'r') as f:
     __version__ = f.read().strip()
 
 # save the source code in version.py
-with open('forestopenfermion/version.py', 'r') as f:
+with open('forest/openfermion/version.py', 'r') as f:
     version_file_source = f.read()
 
 # overwrite version.py in the source distribution
-with open('forestopenfermion/version.py', 'w') as f:
+with open('forest/openfermion/version.py', 'w') as f:
     f.write(f'__version__ = \'{__version__}\'\n')
 
 setup(
-    name='forestopenfermion',
+    name='forest-openfermion',
     version=__version__,
     author='Rigetti Computing',
     author_email='software@rigetti.com',
@@ -51,10 +51,10 @@ setup(
         'pyquil >= 2.0.0, < 3.0.0',
         'quantum-grove < 2.0.0'
     ],
-    packages=['forestopenfermion'],
+    packages=['forest.openfermion'],
     python_requires='>=3.6'
 )
 
 # restore version.py to its previous state
-with open('forestopenfermion/version.py', 'w') as f:
+with open('forest/openfermion/version.py', 'w') as f:
     f.write(version_file_source)

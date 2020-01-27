@@ -1,10 +1,11 @@
 """Testing interface to pyqui.paulis"""
-import numpy as np
 import pytest
+import numpy as np
 from openfermion.ops import QubitOperator, FermionOperator
-from forestopenfermion.pyquil_circuit_generator import exponentiate, TimeEvolution
 from pyquil.gates import H, RX, CNOT, RZ
 from pyquil.quil import Program
+
+from forest.openfermion.pyquil_circuit_generator import exponentiate, TimeEvolution
 
 
 def test_exponentiate():

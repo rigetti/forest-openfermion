@@ -3,14 +3,14 @@ Tests for OpenFermion to pyQuil object Translator
 """
 import pytest
 import numpy as np
-from openfermion.ops import (FermionOperator, 
+from openfermion.ops import (FermionOperator,
                              QubitOperator, InteractionOperator,
                              InteractionRDM)
 from openfermion.utils import hermitian_conjugated
 from openfermion.transforms import jordan_wigner
-from forestopenfermion.pyquil_connector import (pyquilpauli_to_qubitop,
-                                                qubitop_to_pyquilpauli)
 from pyquil.paulis import PauliTerm, PauliSum
+
+from forest.openfermion.pyquil_connector import pyquilpauli_to_qubitop, qubitop_to_pyquilpauli
 
 
 def test_confirm_interface():
