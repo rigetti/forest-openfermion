@@ -45,10 +45,10 @@ setup(
     long_description_content_type='text/markdown',
     license='Apache 2',
     install_requires=[
-        'scipy < 1.0.0',
-        'numpy < 2.0.0',
+        'scipy >= 1.0.0, < 2.0.0',
+        'numpy >= 1.0.0, < 2.0.0',
         'openfermion < 1.0.0',
-        'pyquil < 3.0.0',
+        'pyquil >= 2.0.0, < 3.0.0',
         'quantum-grove < 2.0.0'
     ],
     packages=['forest.openfermion'],
